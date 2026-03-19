@@ -1,4 +1,42 @@
 <!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
-<title>Balkonkraftwerk Vergleich</title>
-<style>body{margin:0;background:#000;color:#fff;font-family:-apple-system,Segoe UI,Roboto,sans-serif}.wrap{max-width:860px;margin:8vh auto;padding:24px}.card{background:#111;border:1px solid #2a2a2a;border-radius:16px;padding:24px}h1{margin:0 0 10px}p{color:#bcbcbc}</style>
-</head><body><div class='wrap'><div class='card'><h1>Balkonkraftwerk Vergleich</h1><p>Vergleich + Ertragsrechner für Balkonkraftwerke.</p><p>Status: MVP setup live.</p></div></div></body></html>
+<title>Balkonkraftwerk Vergleich – Rechner & Ratgeber</title>
+<style>
+:root{--bg:#0b1020;--card:#121a30;--line:#2a3558;--text:#f4f7ff;--muted:#b6c1de;--accent:#61a3ff}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:linear-gradient(180deg,#070b16,#0f1730);color:var(--text)}
+a{color:#9ec5ff;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:980px;margin:0 auto;padding:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:18px}
+h1,h2,h3{margin:0 0 10px}p,li,label{color:var(--muted);line-height:1.5}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.result{background:#0e1426;padding:14px;border-radius:10px;border:1px solid var(--line);margin-top:10px}
+input,select,button{width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:#0d152a;color:var(--text)}
+button{background:#1f4b99;border-color:#2f67c7;font-weight:700;cursor:pointer}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.link-card{display:block;padding:12px;border:1px solid var(--line);border-radius:10px;background:#0d152a}
+small{color:#8fa0c8}
+</style>
+</head><body><main class='wrap'>
+<section class='card'><h1>Balkonkraftwerk Vergleich</h1><p>Vergleich, Ertragsrechner und Ratgeber für Balkonkraftwerke in Deutschland.</p>
+<p><a href='/ratgeber/'>Zum Ratgeber-Hub mit 10 Landingpages</a></p></section>
+<section class='card'><h2>Balkonkraftwerk-Rechner (MVP)</h2><p>Schätze Jahresertrag, Ersparnis und Amortisationszeit ohne externe APIs.</p>
+<div class='grid'>
+<div><label>Anlagenleistung (Wp)</label><input id='wp' type='number' value='800' min='200' max='2000'></div>
+<div><label>Spezifischer Ertrag (kWh/kWp/Jahr)</label><input id='yield' type='number' value='900' min='500' max='1300'></div>
+<div><label>Eigenverbrauchsanteil (%)</label><input id='self' type='number' value='70' min='20' max='100'></div>
+<div><label>Strompreis (€/kWh)</label><input id='price' type='number' value='0.33' min='0.15' max='0.8' step='0.01'></div>
+<div><label>Investitionskosten (€)</label><input id='invest' type='number' value='950' min='300' max='5000'></div>
+<div style='align-self:end'><button onclick='calc()'>Jetzt berechnen</button></div>
+</div><div id='out' class='result'></div></section>
+<section class='card'><h3>Schnellzugriff: Beliebte Ratgeber</h3><div class='links'><a class='link-card' href='/ratgeber/balkonkraftwerk-kosten.html'>Balkonkraftwerk Kosten 2026: Anschaffung & Betrieb</a><a class='link-card' href='/ratgeber/balkonkraftwerk-ertrag.html'>Balkonkraftwerk Ertrag berechnen: kWh & Amortisation</a><a class='link-card' href='/ratgeber/balkonkraftwerk-speicher.html'>Balkonkraftwerk mit Speicher: Lohnt sich das?</a><a class='link-card' href='/ratgeber/balkonkraftwerk-miete.html'>Balkonkraftwerk in Mietwohnung: Regeln & Tipps</a><a class='link-card' href='/ratgeber/balkonkraftwerk-anmeldung.html'>Balkonkraftwerk anmelden: Marktstammdaten in 10 Minuten</a><a class='link-card' href='/ratgeber/balkonkraftwerk-ausrichtung.html'>Ausrichtung & Neigung: So holst du mehr Ertrag raus</a><a class='link-card' href='/ratgeber/balkonkraftwerk-foerderung.html'>Balkonkraftwerk Förderung 2026 nach Bundesland</a><a class='link-card' href='/ratgeber/balkonkraftwerk-800-watt.html'>800-Watt-Balkonkraftwerk: Was ist erlaubt?</a><a class='link-card' href='/ratgeber/balkonkraftwerk-modulwahl.html'>Mono vs. Bifazial: Welche Module sind sinnvoll?</a><a class='link-card' href='/ratgeber/balkonkraftwerk-wechselrichter.html'>Mikrowechselrichter Vergleich: Worauf achten?</a></div></section>
+</main><script>
+function calc(){
+const wp=+document.getElementById('wp').value||0;
+const y=+document.getElementById('yield').value||0;
+const self=(+document.getElementById('self').value||0)/100;
+const p=+document.getElementById('price').value||0;
+const invest=+document.getElementById('invest').value||0;
+const yearly=(wp/1000)*y;
+const used=yearly*self;
+const save=used*p;
+const payback=save>0?invest/save:0;
+document.getElementById('out').innerHTML=`<strong>Ergebnis:</strong><br>Jahresertrag: <b>${yearly.toFixed(0)} kWh</b><br>Direkt genutzter Strom: <b>${used.toFixed(0)} kWh</b><br>Jährliche Ersparnis: <b>${save.toFixed(0)} €</b><br>Amortisation: <b>${payback.toFixed(1)} Jahre</b><br><small>Hinweis: Vereinfachtes MVP-Modell für eine erste Orientierung.</small>`;
+}
+calc();
+</script></body></html>
