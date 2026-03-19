@@ -123,15 +123,18 @@
     .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
     .compare-card{
       border:1px solid var(--line-soft);border-radius:22px;padding:24px;background:#fff;
-      display:flex;flex-direction:column;gap:16px;min-height:468px;box-shadow:0 8px 26px rgba(19,28,27,.04)
+      display:flex;flex-direction:column;gap:18px;min-height:476px;box-shadow:0 8px 26px rgba(19,28,27,.04)
     }
     .compare-media{height:176px;border-radius:14px;border:1px solid #d8e9e2;background:linear-gradient(160deg,#eef8f3 0%,#ffffff 100%);overflow:hidden;position:relative}
     .compare-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(.96) brightness(1.01)}
-    .compare-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+    .compare-title{display:grid;gap:8px}
+    .compare-title h3{margin:0;line-height:1.25}
+    .compare-title p{margin:0;color:#4c5655;line-height:1.62}
+    .compare-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding-bottom:2px;border-bottom:1px solid #ddebe5}
     .tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#356655;background:#eff7f3;border:1px solid #cde2da;padding:6px 9px;border-radius:999px;width:max-content}
-    .price{font-size:1.9rem;font-weight:600;letter-spacing:-.03em;color:#101213}
-    .compare-card ul{margin:0;padding-left:18px;color:#4c5655;line-height:1.8}
-    .compare-card .cta{margin-top:auto;padding:11px 14px;border:1px solid var(--line-soft);border-radius:12px;font-size:14px;color:#2a3433;background:#fbfefd}
+    .price{font-size:1.85rem;font-weight:600;letter-spacing:-.03em;color:#101213;line-height:1}
+    .compare-card ul{margin:0;padding-left:18px;color:#4c5655;line-height:1.72}
+    .compare-card .cta{margin-top:auto;padding:11px 14px;border:1px solid var(--line-soft);border-radius:12px;font-size:14px;color:#2a3433;background:#fbfefd;display:inline-flex;align-items:center;gap:6px}
 
     .calculator-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
     .panel{border:1px solid var(--line-soft);border-radius:22px;background:#fff;padding:26px;box-shadow:0 8px 24px rgba(17,28,24,.035)}
@@ -161,6 +164,8 @@
       background:linear-gradient(180deg,#f6fcf8 0%, #fff 86%);
       display:grid;grid-template-columns:1.08fr .92fr;gap:32px;align-items:start
     }
+    .lead-copy h2{margin:14px 0 0;font-size:clamp(2rem,3vw,2.55rem);line-height:1.14;letter-spacing:-.02em}
+    .lead-copy p{margin-top:14px;font-size:1.03rem;line-height:1.72;color:#41514d;max-width:56ch}
     .lead-form{max-width:520px;justify-self:end;border:1px solid var(--line-soft);border-radius:18px;background:#fff;padding:22px}
     .lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .lead-form label{display:block;font-size:12px;color:#556361;margin-bottom:6px}
@@ -302,9 +307,11 @@
             <div class="compare-media">
               <img src="/assets/media/starter-set.jpg" alt="Balkonkraftwerk Starter-Set auf modernem Balkon" loading="lazy" decoding="async">
             </div>
+            <div class="compare-title">
+              <h3>Starter Sets</h3>
+              <p>Für den schnellen Einstieg mit solidem Ertrag und niedriger Einstiegshürde.</p>
+            </div>
             <div class="compare-top"><span class="tag">Preisfokus</span><div class="price">ab 550 €</div></div>
-            <h3>Starter Sets</h3>
-            <p>Für den schnellen Einstieg mit solidem Ertrag und niedriger Einstiegshürde.</p>
             <ul>
               <li>Typisch 600–800 Wp</li>
               <li>Ideal für Süd/West-Balkon</li>
@@ -317,9 +324,11 @@
             <div class="compare-media">
               <img src="/assets/media/effizienz-set.jpg" alt="Effizienz-Balkonkraftwerk mit leistungsstarken Solarmodulen" loading="lazy" decoding="async">
             </div>
+            <div class="compare-title">
+              <h3>Effizienz Sets</h3>
+              <p>Für Nutzer:innen mit höherem Tagesverbrauch und Fokus auf konstanten Eigenverbrauch.</p>
+            </div>
             <div class="compare-top"><span class="tag">Balance</span><div class="price">ab 890 €</div></div>
-            <h3>Effizienz Sets</h3>
-            <p>Für Nutzer:innen mit höherem Tagesverbrauch und Fokus auf konstanten Eigenverbrauch.</p>
             <ul>
               <li>Höherer Wirkungsgrad</li>
               <li>Bessere Leistung bei diffusem Licht</li>
@@ -332,9 +341,11 @@
             <div class="compare-media">
               <img src="/assets/media/speicher-set.jpg" alt="Balkonkraftwerk-Set mit Batteriespeicher für Abendverbrauch" loading="lazy" decoding="async">
             </div>
+            <div class="compare-title">
+              <h3>Sets mit Speicher</h3>
+              <p>Für Haushalte mit Lastspitzen am Abend und Wunsch nach mehr Eigenstromnutzung.</p>
+            </div>
             <div class="compare-top"><span class="tag">Autarkie</span><div class="price">ab 1.390 €</div></div>
-            <h3>Sets mit Speicher</h3>
-            <p>Für Haushalte mit Lastspitzen am Abend und Wunsch nach mehr Eigenstromnutzung.</p>
             <ul>
               <li>Mehr nutzbarer Solarstrom</li>
               <li>Komfort durch Lastverschiebung</li>
@@ -424,10 +435,10 @@
     <section class="section">
       <div class="container">
         <div class="cta-block">
-          <div>
+          <div class="lead-copy">
             <span class="eyebrow"><span class="dot"></span>Persönliche Ersteinschätzung</span>
-            <h2 style="margin-top:14px">Du willst Klarheit statt Datenchaos?</h2>
-            <p style="margin-top:14px">Schick uns deine Eckdaten. Du erhältst eine strukturierte Rückmeldung mit sinnvollen nächsten Schritten – ohne Verkaufsdruck.</p>
+            <h2>Du willst Klarheit statt Datenchaos?</h2>
+            <p>Schick uns deine Eckdaten. Du erhältst eine strukturierte Rückmeldung mit sinnvollen nächsten Schritten – ohne Verkaufsdruck.</p>
           </div>
 
           <form class="lead-form" id="lead-form">
