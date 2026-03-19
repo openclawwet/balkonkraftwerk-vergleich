@@ -69,18 +69,28 @@
     .nav-links{display:flex;gap:20px;font-size:14px;color:#44504e}
     .nav-cta{padding:10px 16px;border:1px solid var(--line);border-radius:999px;font-size:13px;background:#fff}
 
+    .utility-ticker{border-bottom:1px solid var(--line-soft);background:rgba(240,248,244,.7);backdrop-filter:blur(10px)}
+    .utility-ticker .container{display:flex;justify-content:space-between;gap:12px;align-items:center;min-height:44px;font-size:13px;color:#28403a}
+    .ticker-status{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .ticker-pill{display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border:1px solid rgba(49,91,78,.2);background:#fff;border-radius:999px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#34554c}
+    .ticker-updated{font-size:12px;color:#5b6f69}
+
     .hero{
       position:relative;overflow:hidden;
-      background:radial-gradient(1200px 620px at 50% -6%, #edf5f1 0%, #fff 62%);
+      background:
+        linear-gradient(112deg, rgba(8,23,22,.44), rgba(8,23,22,.2)),
+        url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2200&q=80') center/cover no-repeat;
     }
-    .hero-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:44px;align-items:stretch}
-    .hero-copy p{font-size:clamp(1rem,1.14vw,1.18rem);max-width:60ch;margin-top:24px}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(1200px 620px at 50% -6%, rgba(237,245,241,.48) 0%, rgba(255,255,255,.05) 65%)}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .9fr;gap:44px;align-items:stretch}
+    .hero-copy{padding:34px;border-radius:28px;border:1px solid rgba(255,255,255,.38);background:rgba(255,255,255,.66);backdrop-filter:blur(16px);box-shadow:var(--shadow-soft)}
+    .hero-copy p{font-size:clamp(1rem,1.14vw,1.18rem);max-width:60ch;margin-top:24px;color:#33413e}
     .hero-copy h1{max-width:16ch}
-    .hero-copy .subtle{margin-top:12px;font-size:14px;color:#5d6967}
+    .hero-copy .subtle{margin-top:12px;font-size:14px;color:#4f605c}
 
     .search-card{
-      background:#fff;border:1px solid rgba(16,29,27,.18);border-radius:30px;
-      padding:16px;box-shadow:var(--shadow-soft)
+      background:rgba(255,255,255,.82);border:1px solid rgba(16,29,27,.12);border-radius:30px;
+      padding:16px;box-shadow:0 14px 36px rgba(15,24,21,.12)
     }
     .search-grid{display:grid;grid-template-columns:1fr 1fr auto;gap:10px}
     .input-group{border:1px solid var(--line-soft);border-radius:16px;padding:12px;background:#fff}
@@ -95,7 +105,7 @@
 
     .hero-cards{display:grid;gap:14px;align-content:end}
     .glance{
-      background:#fff;border:1px solid var(--line-soft);border-radius:20px;padding:22px
+      background:rgba(255,255,255,.74);border:1px solid rgba(255,255,255,.45);border-radius:20px;padding:22px;backdrop-filter:blur(12px)
     }
     .glance .kicker{font-size:12px;color:#6a7875;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
     .glance .value{font-size:2rem;letter-spacing:-.03em;color:#111;font-weight:600}
@@ -114,7 +124,8 @@
       border:1px solid var(--line-soft);border-radius:22px;padding:20px;background:#fff;
       display:flex;flex-direction:column;gap:14px;min-height:328px;box-shadow:0 8px 26px rgba(19,28,27,.04)
     }
-    .compare-media{height:118px;border-radius:14px;border:1px solid #d8e9e2;background:linear-gradient(160deg,#eef8f3 0%,#ffffff 100%)}
+    .compare-media{height:118px;border-radius:14px;border:1px solid #d8e9e2;background:linear-gradient(160deg,#eef8f3 0%,#ffffff 100%);overflow:hidden;position:relative}
+    .compare-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(.96) brightness(1.01)}
     .compare-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
     .tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#356655;background:#eff7f3;border:1px solid #cde2da;padding:6px 9px;border-radius:999px;width:max-content}
     .price{font-size:1.9rem;font-weight:600;letter-spacing:-.03em;color:#101213}
@@ -192,6 +203,16 @@
     </div>
   </nav>
 
+  <section class="utility-ticker" aria-live="polite">
+    <div class="container">
+      <div class="ticker-status">
+        <span class="ticker-pill"><span class="dot"></span>Live Markt-Update</span>
+        <span id="ticker-value">Lade aktuelle Energiedaten …</span>
+      </div>
+      <span id="ticker-updated" class="ticker-updated">Letztes Update: –</span>
+    </div>
+  </section>
+
   <main id="top">
     <section class="hero section">
       <div class="container hero-grid">
@@ -259,7 +280,9 @@
 
         <div class="cards-3">
           <article class="compare-card">
-            <div class="compare-media"></div>
+            <div class="compare-media">
+              <img src="/assets/media/starter-set.svg" alt="Balkonkraftwerk Starter-Set auf modernem Balkon" loading="lazy" decoding="async">
+            </div>
             <div class="compare-top"><span class="tag">Preisfokus</span><div class="price">ab 550 €</div></div>
             <h3>Starter Sets</h3>
             <p>Für den schnellen Einstieg mit solidem Ertrag und niedriger Einstiegshürde.</p>
@@ -272,7 +295,9 @@
           </article>
 
           <article class="compare-card">
-            <div class="compare-media"></div>
+            <div class="compare-media">
+              <img src="/assets/media/effizienz-set.svg" alt="Effizienz-Balkonkraftwerk mit leistungsstarken Solarmodulen" loading="lazy" decoding="async">
+            </div>
             <div class="compare-top"><span class="tag">Balance</span><div class="price">ab 890 €</div></div>
             <h3>Effizienz Sets</h3>
             <p>Für Nutzer:innen mit höherem Tagesverbrauch und Fokus auf konstanten Eigenverbrauch.</p>
@@ -285,7 +310,9 @@
           </article>
 
           <article class="compare-card">
-            <div class="compare-media"></div>
+            <div class="compare-media">
+              <img src="/assets/media/speicher-set.svg" alt="Balkonkraftwerk-Set mit Batteriespeicher für Abendverbrauch" loading="lazy" decoding="async">
+            </div>
             <div class="compare-top"><span class="tag">Autarkie</span><div class="price">ab 1.390 €</div></div>
             <h3>Sets mit Speicher</h3>
             <p>Für Haushalte mit Lastspitzen am Abend und Wunsch nach mehr Eigenstromnutzung.</p>
@@ -452,6 +479,35 @@
     }
 
     calc();
+
+    function formatTickerTime(iso){
+      const date = iso ? new Date(iso) : new Date();
+      return new Intl.DateTimeFormat('de-DE', { hour: '2-digit', minute: '2-digit' }).format(date);
+    }
+
+    function renderTicker(payload){
+      const valueNode = document.getElementById('ticker-value');
+      const updatedNode = document.getElementById('ticker-updated');
+      if(!valueNode || !updatedNode) return;
+      const trendSymbol = payload.trend === 'up' ? '↗' : payload.trend === 'down' ? '↘' : '→';
+      const value = Number(payload.value || 0).toFixed(3).replace('.', ',');
+      valueNode.textContent = `${payload.item}: ${value} ${payload.unit} ${trendSymbol}`;
+      updatedNode.textContent = `Letztes Update: ${formatTickerTime(payload.updatedAt)} Uhr`;
+    }
+
+    async function loadTicker(){
+      try{
+        const response = await fetch('/api/live-ticker', { cache: 'no-store' });
+        if(!response.ok) throw new Error('ticker_fetch_failed');
+        const data = await response.json();
+        if(data?.ticker) renderTicker(data.ticker);
+      }catch(err){
+        renderTicker({ item: 'Marktindikator', value: 0.318, unit: '€/kWh', trend: 'stable', updatedAt: new Date().toISOString() });
+      }
+    }
+
+    loadTicker();
+    setInterval(loadTicker, 5 * 60 * 1000);
 
     async function submitLead(e){
       e.preventDefault();
