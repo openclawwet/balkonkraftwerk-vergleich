@@ -1,4 +1,6 @@
-<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Ausrichtung & Neigung: So holst du mehr Ertrag raus</title>
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<meta name='description' content='Ausrichtung & Neigung: So holst du mehr Ertrag raus – kompakt erklärt mit Rechner, Checkliste und konkreten nächsten Schritten.'><title>Ausrichtung & Neigung: So holst du mehr Ertrag raus</title>
+<link rel='canonical' href='https://balkonkraftwerk-vergleich.vercel.app/ratgeber/balkonkraftwerk-ausrichtung.html'>
 <style>
 :root{--bg:#0b1020;--card:#121a30;--line:#2a3558;--text:#f4f7ff;--muted:#b6c1de;--accent:#61a3ff}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:linear-gradient(180deg,#070b16,#0f1730);color:var(--text)}
@@ -11,4 +13,24 @@ button{background:#1f4b99;border-color:#2f67c7;font-weight:700;cursor:pointer}.l
 .link-card{display:block;padding:12px;border:1px solid var(--line);border-radius:10px;background:#0d152a}
 small{color:#8fa0c8}
 </style>
-</head><body><main class='wrap'><article class='card'><h1>Ausrichtung & Neigung: So holst du mehr Ertrag raus</h1><p>Diese Landingpage ist Teil des Phase-1-MVP und liefert eine fokussierte Einführung ins Thema <strong>Ausrichtung & Neigung: So holst du mehr Ertrag raus</strong>.</p><h2>Das Wichtigste auf einen Blick</h2><ul><li>Klare Orientierung für Einsteiger</li><li>Praxisnahe Kennzahlen und Entscheidungsfaktoren</li><li>Interne Verlinkung zum gesamten Themencluster</li></ul><p>Für eine schnelle Abschätzung deiner Einsparung nutze den <a href='/'>Balkonkraftwerk-Rechner auf der Startseite</a>.</p></article><nav class='card'><h3>Weiterlesen</h3><p><a href='/ratgeber/balkonkraftwerk-anmeldung.html'>← Vorherige Seite</a> · <a href='/ratgeber/balkonkraftwerk-foerderung.html'>Nächste Seite →</a></p><p><a href='/ratgeber/'>Alle 10 Ratgeberseiten im Hub</a></p></nav></main></body></html>
+<script type='application/ld+json'>{"@context":"https://schema.org","@type":"Article","headline":"Ausrichtung & Neigung: So holst du mehr Ertrag raus","description":"Ausrichtung & Neigung: So holst du mehr Ertrag raus – kompakt erklärt mit Rechner, Checkliste und konkreten nächsten Schritten.","author":{"@type":"Organization","name":"Balkonkraftwerk Vergleich"},"dateModified":"2026-03-19","mainEntityOfPage":"https://balkonkraftwerk-vergleich.vercel.app/ratgeber/balkonkraftwerk-ausrichtung.html"}</script>
+</head><body><main class='wrap'><article class='card'><h1>Ausrichtung & Neigung: So holst du mehr Ertrag raus</h1><p>Diese Landingpage ist Teil des Phase-1-MVP und liefert eine fokussierte Einführung ins Thema <strong>Ausrichtung & Neigung: So holst du mehr Ertrag raus</strong>.</p><h2>Das Wichtigste auf einen Blick</h2><ul><li>Klare Orientierung für Einsteiger</li><li>Praxisnahe Kennzahlen und Entscheidungsfaktoren</li><li>Interne Verlinkung zum gesamten Themencluster</li></ul><p>Für eine schnelle Abschätzung deiner Einsparung nutze den <a href='/'>Balkonkraftwerk-Rechner auf der Startseite</a>.</p></article><nav class='card'><h3>Weiterlesen</h3><p><a href='/ratgeber/balkonkraftwerk-anmeldung.html'>← Vorherige Seite</a> · <a href='/ratgeber/balkonkraftwerk-foerderung.html'>Nächste Seite →</a></p><p><a href='/'>Zur Startseite</a> · <a href='/ratgeber/'>Alle 10 Ratgeberseiten im Hub</a></p></nav><section class='card'><h3>Kurzformular für Rückmeldung</h3><form id='lead-form'><div class='grid'><div><label>Name</label><input name='name' required placeholder='Max Mustermann'></div><div><label>E-Mail</label><input name='email' type='email' required placeholder='max@beispiel.de'></div><div><label>PLZ</label><input name='zip' required placeholder='10115'></div><div><label>Telefon (optional)</label><input name='phone' placeholder='+49 ...'></div><div style='grid-column:1/-1'><label>Dein Ziel</label><input name='goal' required placeholder='z. B. Kosten senken, Förderung prüfen, Angebot vergleichen'></div><div style='grid-column:1/-1'><button type='submit'>Kostenlose Ersteinschätzung anfordern</button></div></div><p id='lead-msg'><small>Wir melden uns i. d. R. innerhalb von 1 Werktag.</small></p></form></section><section class='card'><h3>Transparenz & Vertrauen</h3><p><small>Methodik: Vereinfachte Modellrechnung auf Basis deiner Eingaben und typischer Marktwerte. Stand: 2026-03-19. Quellenhinweis: veröffentlichte Richtwerte von Verbraucherzentralen, Branchenverbänden und Förderstellen (z. B. KfW/BAFA, je nach Thema).</small></p></section>
+</main><script>
+async function submitLead(e){
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const payload = Object.fromEntries(fd.entries());
+  payload.page = location.pathname;
+  const msg = document.getElementById('lead-msg');
+  try{
+    const r = await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!r.ok) throw new Error('Request failed');
+    msg.innerHTML = '<small>✅ Danke! Wir haben deine Anfrage erhalten.</small>';
+    e.target.reset();
+  }catch(err){
+    msg.innerHTML = '<small>⚠️ Konnte gerade nicht gesendet werden. Bitte später erneut versuchen.</small>';
+  }
+}
+const lf = document.getElementById('lead-form');
+if(lf) lf.addEventListener('submit', submitLead);
+</script></body></html>
